@@ -7,7 +7,7 @@ const quotes = [
     {text :"Reason is an action of the mind knowledge is a possession of the mind but faith is an attitude of the person. It means you are prepared to stake yourself on something being so.", category: 'attitude'}
 ];
 
-function showNewQuote (){
+function showRandomQuote (){
     const quoteDisplay = document.getElementById('quoteDisplay')
     const randomIndex = Math.floor(Math.random()*quotes.length)
     const quote =  quotes[randomIndex]
@@ -29,7 +29,7 @@ function addQuote(){
     }
 }
 document.addEventListener('DOMContentLoaded',function(){
-    document.getElementById('newQuote').addEventListener('click', showNewQuote)
+    document.getElementById('newQuote').addEventListener('click', showRandomQuote)
 })
 
 
