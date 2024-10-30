@@ -7,29 +7,31 @@ const quotes = [
     {text :"Reason is an action of the mind knowledge is a possession of the mind but faith is an attitude of the person. It means you are prepared to stake yourself on something being so.", category: 'attitude'}
 ];
 
-function showRandomQuote (){
+function showRandomQuote(){
+    const randomIndex = Math.floor(Math.random()*quotes.length) 
     const quoteDisplay = document.getElementById('quoteDisplay')
-    const randomIndex = Math.floor(Math.random()*quotes.length)
-    const quote =  quotes[randomIndex]
-
-    quoteDisplay.innerHTML=`<p>${quote.text}</p><p> Category: ${quote.category}</p>`
+    const quote = quotes[randomIndex]
+    quoteDisplay.innerHTML= `<p>${quote.text}</p><p>category: ${quote.category}</p>`
 }
+
 
 
 function addQuote(){
-    const newQuote = document.getElementById('newQuoteText').value.trim()
-    const newCategory = document.getElementById('newQuoteCategory').value.trim()
+    const quoteText = document.getElementById('newQuoteText').value.trim()
+    const quoteCategory = document.getElementById('newQuoteCategory').value.trim()
 
-    if(newQuote && newCategory ){
-        quotes.push({text: newQuote, category: newCategory})
-        document.getElementById('newQuoteText')= ''
-        document.getElementById('newQuoteCategory')= ''
+    if (quoteText && quoteCategory){
+        quotes.push({text:quoteText , category:quoteCategory})
+        document.getElementById('newQuoteText').value= ''
+        document.getElementById('newQuoteCategory').value=''
+        alert('New quote added !')
     }else{
-        alert('please enter a quote !.')
+        alert('please add a quote.')
     }
 }
 document.addEventListener('DOMContentLoaded',function(){
-    document.getElementById('newQuote').addEventListener('click', showRandomQuote)
+    document.getElementById('newQuote').addEventListener('click', showRandomQuote);
+
 })
 
 
